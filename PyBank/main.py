@@ -37,10 +37,9 @@ with open('.\\Analysis\\analysis.txt','w') as outFile:
     outFile.write(f'Average Change: ${avgCalc:.2f}\n')
     outFile.write(f'The greatest increase in profits: {greatInc[0]}  (${greatInc[1]})\nThe greatest decrease in profits: {greatDec[0]}  (${greatDec[1]})\n')
 
-##### These are used to print to terminal for development and debugging
-# print('Financial Analysis')
-# print('---------------------------------------------------------------')
-# print(f'Total Months: {len(data)-1}') # Need to subtract 1 because of the headers
-# print(f'Total: ${netTally}')
-# print(f'Average Change: ${avgCalc:.2f}')
-# print(f'The greatest increase in profits: {greatInc[0]}  (${greatInc[1]})\nThe greatest decrease in profits: {greatDec[0]}  (${greatDec[1]})')
+print('Financial Analysis')
+print('---------------------------------------------------------------')
+print(f'Total Months: {len(data)-1}') # Need to subtract 1 because of the headers
+print(f'Total: ${netTally}')
+print(f'Average Change: ${avgCalc:.2f}')
+print(f'The greatest increase in profits: {greatInc[0]}  (${greatInc[1]})\nThe greatest decrease in profits: {greatDec[0]}  (${greatDec[1]})')
