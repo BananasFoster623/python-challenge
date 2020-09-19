@@ -15,15 +15,16 @@ for i in range(1,len(data),1):
     if data[i][2] not in candidateNames:
         candidateNames.append(data[i][2])
 
-voteCounts = []
+# Find the count of votes for for EACH candidate
+candVoteCounts = []
 for i in range(len(candidateNames)):   
-    voteCounts.append(sum(x.count(candidateNames[i]) for x in data))
+    candVoteCounts.append(sum(x.count(candidateNames[i]) for x in data))
 
-votePercent = []
-for i in range(len(voteCounts)):
-    votePercent.append(voteCounts[i]/(rows-1))
+candVotePercent = []
+for i in range(len(candVoteCounts)):
+    candVotePercent.append(candVoteCounts[i]/(rows-1))
 
-print(votePercent)
+print(candVotePercent)
 
 # Prepare the terminal output
 print('\n\n') ### This is temporary until final formatting
