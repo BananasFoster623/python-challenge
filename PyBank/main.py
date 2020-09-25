@@ -1,8 +1,10 @@
 # Import all needed modules and libraries
 import csv
+from pathlib import Path
 
 # Open the budget_data.csv file and assign to a list 'data'
-with open('.\\Resources\\budget_data.csv') as csvfile:
+readpath = Path.cwd() / 'Resources' / 'budget_data.csv'
+with open(readpath) as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     data = list(reader)
 
@@ -19,10 +21,10 @@ for i in range(1,len(data)-1,1): # loop for the increase AND decrease using two 
     diff = int(data[i+1][1])-int(data[i][1])
     avgCalc = avgCalc + diff
     if (diff > greatInc[1]):
-        greatInc[0] = data[i][0]
+        greatInc[0] = data[i+1][0]
         greatInc[1] = diff
     if (diff < greatDec[1]):
-        greatDec[0] = data[i][0]
+        greatDec[0] = data[i+1][0]
         greatDec[1] = diff
 
 # Calculate the average change in profits over the time period
