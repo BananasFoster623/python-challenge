@@ -16,7 +16,7 @@ cols = len(data[0]) ## This is our number of columns
 totalVoteCount = rows - 1
 
 candidateNames = []
-for i in range(1,len(data),1):
+for i in range(1,len(data),1): # starting from 1 since there is a header row
     # if current (i,2) value is not in candidateNames list, append
     if data[i][2] not in candidateNames:
         candidateNames.append(data[i][2])
@@ -26,11 +26,13 @@ candVoteCounts = []
 for i in range(len(candidateNames)):   
     candVoteCounts.append(sum(x.count(candidateNames[i]) for x in data))
 
+# Find the percentage of votes for EACH candidate
 candVotePercent = []
 for i in range(len(candVoteCounts)):
     candVotePercent.append(100*(candVoteCounts[i]/(rows-1)))
 
-# Find the winner
+# Find the winner by looking up who has the most votes, finding its index,
+# then using that index to find the winner in candidateNames[].
 winner = candidateNames[candVoteCounts.index(max(candVoteCounts))]
 
 # Print out to analysis.txt
