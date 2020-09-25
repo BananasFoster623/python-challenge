@@ -1,13 +1,19 @@
 # Import all needed modules and libraries
 import csv
+from pathlib import Path
 
 # Open the election_data.csv file and assign to a list 'data'
-with open('.\\Resources\\election_data.csv') as csvfile:
+readpath = Path.cwd() / 'Resources' / 'election_data.csv'
+with open(readpath) as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     data = list(reader)
 
 rows = len(data) ## This value -1 is our total number of votes cast
 cols = len(data[0]) ## This is our number of columns
+
+# Calculate Total Vote Count
+# It will be the total number of rows minus the header row
+totalVoteCount = rows - 1
 
 candidateNames = []
 for i in range(1,len(data),1):
@@ -22,20 +28,31 @@ for i in range(len(candidateNames)):
 
 candVotePercent = []
 for i in range(len(candVoteCounts)):
-    candVotePercent.append(candVoteCounts[i]/(rows-1))
+    candVotePercent.append(100*(candVoteCounts[i]/(rows-1)))
 
-print(candVotePercent)
+# Find the winner
+winner = candidateNames[candVoteCounts.index(max(candVoteCounts))]
+
+# Print out to analysis.txt
+outpath = Path.cwd() / 'Analysis' / 'analysis.txt'
+with open(outpath,'w') as outFile:
+    outFile.write('Election Results\n')
+    outFile.write('---------------------------------------------------------------\n')
+    outFile.write(f'Total Votes: {totalVoteCount}\n')
+    outFile.write('---------------------------------------------------------------\n')
+    for x in range(len(candidateNames)):
+        outFile.write(f'{candidateNames[x]}: {candVotePercent[x]:4f}% ({candVoteCounts[x]})\n')
+    outFile.write('---------------------------------------------------------------\n')
+    outFile.write(f'Winner: {winner}\n')
+    outFile.write('---------------------------------------------------------------\n')
 
 # Prepare the terminal output
-print('\n\n') ### This is temporary until final formatting
 print('Election Results')
 print('---------------------------------------------------------------')
-print(f'Total Votes: ')
+print(f'Total Votes: {totalVoteCount}')
 print('---------------------------------------------------------------')
-print(f'Khan:')
-print(f'Correy: ')
-print(f'Li: ')
-print(f'O\'Tooley: ')
+for x in range(len(candidateNames)):
+    print(f'{candidateNames[x]}: {candVotePercent[x]:4f}% ({candVoteCounts[x]})')
 print('---------------------------------------------------------------')
-print(f'Winner: ')
+print(f'Winner: {winner}')
 print('---------------------------------------------------------------')
