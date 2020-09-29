@@ -23,7 +23,89 @@ for i in range(1,len(data)):
     data[i][3] = NewDate
 
 # Convert the SSN column such that the first five DIGITS are asterisks (*)
+for i in range(1,len(data)):
+    SSNSplit = data[i][4].split("-")
+    NewSSN = "***-**-"+SSNSplit[2]
+    data[i][4] = NewSSN
 
+## Copy and pasted dictionary of state abbreviations from a public domain file on github
+# United States of America Python Dictionary to translate States,
+# Districts & Territories to Two-Letter codes and vice versa.
+#
+# https://gist.github.com/rogerallen/1583593
+#
+# Dedicated to the public domain.  To the extent possible under law,
+# Roger Allen has waived all copyright and related or neighboring
+# rights to this code.
+
+us_state_abbrev = {
+    'Alabama': 'AL',
+    'Alaska': 'AK',
+    'American Samoa': 'AS',
+    'Arizona': 'AZ',
+    'Arkansas': 'AR',
+    'California': 'CA',
+    'Colorado': 'CO',
+    'Connecticut': 'CT',
+    'Delaware': 'DE',
+    'District of Columbia': 'DC',
+    'Florida': 'FL',
+    'Georgia': 'GA',
+    'Guam': 'GU',
+    'Hawaii': 'HI',
+    'Idaho': 'ID',
+    'Illinois': 'IL',
+    'Indiana': 'IN',
+    'Iowa': 'IA',
+    'Kansas': 'KS',
+    'Kentucky': 'KY',
+    'Louisiana': 'LA',
+    'Maine': 'ME',
+    'Maryland': 'MD',
+    'Massachusetts': 'MA',
+    'Michigan': 'MI',
+    'Minnesota': 'MN',
+    'Mississippi': 'MS',
+    'Missouri': 'MO',
+    'Montana': 'MT',
+    'Nebraska': 'NE',
+    'Nevada': 'NV',
+    'New Hampshire': 'NH',
+    'New Jersey': 'NJ',
+    'New Mexico': 'NM',
+    'New York': 'NY',
+    'North Carolina': 'NC',
+    'North Dakota': 'ND',
+    'Northern Mariana Islands':'MP',
+    'Ohio': 'OH',
+    'Oklahoma': 'OK',
+    'Oregon': 'OR',
+    'Pennsylvania': 'PA',
+    'Puerto Rico': 'PR',
+    'Rhode Island': 'RI',
+    'South Carolina': 'SC',
+    'South Dakota': 'SD',
+    'Tennessee': 'TN',
+    'Texas': 'TX',
+    'Utah': 'UT',
+    'Vermont': 'VT',
+    'Virgin Islands': 'VI',
+    'Virginia': 'VA',
+    'Washington': 'WA',
+    'West Virginia': 'WV',
+    'Wisconsin': 'WI',
+    'Wyoming': 'WY'
+}
+
+# Use the above defined dictionary to convert states to abbreviations
+for i in range(1,len(data)):
+    temp = us_state_abbrev[data[i][5]]
+    data[i][5] = temp
+
+# Write everything out to a csv file
+# writepath = Path.cwd() / 'Analysis'
+# with open('new_employee_data.csv', 'w', newline='') as outFile:
+    
 ####### TEMP SECTION ########
 temp = True
 if temp == True:
@@ -31,6 +113,6 @@ if temp == True:
     cols = int(len(data[0]))
     print(rows, cols)
 
-    for i in range(1,len(data)):
-        print(f'{data[i][0]}  {data[i][1]}  {data[i][2]}  {data[i][3]}  {data[i][4]} ')
+    for i in range(1,rows):
+        print(f'{data[i][0]}  {data[i][1]}  {data[i][2]}  {data[i][3]}  {data[i][4]} {data[i][5]}')
 ####### TEMP SECTION ########
