@@ -103,16 +103,19 @@ for i in range(1,len(data)):
     data[i][5] = temp
 
 # Write everything out to a csv file
-# writepath = Path.cwd() / 'Analysis'
-# with open('new_employee_data.csv', 'w', newline='') as outFile:
-    
-####### TEMP SECTION ########
-temp = True
+writepath = Path.cwd() / 'Analysis' / 'new_employee_data.csv'
+with open(writepath, 'w', newline='') as outFile:
+    csvwriter = csv.writer(outFile,delimiter = ',')
+    csvwriter.writerow(['Emp ID', 'First Name', 'Last Name', 'DOB', 'SSN', 'State'])
+    for i in range(1,len(data)):
+        csvwriter.writerow([data[i][0],data[i][1],data[i][2],data[i][3],data[i][4],data[i][5]])
+
+####### DEBUGGING OUTPUTS ########
+temp = False
 if temp == True:
     rows = int(len(data))
     cols = int(len(data[0]))
     print(rows, cols)
-
     for i in range(1,rows):
         print(f'{data[i][0]}  {data[i][1]}  {data[i][2]}  {data[i][3]}  {data[i][4]} {data[i][5]}')
-####### TEMP SECTION ########
+####### DEBUGGING OUTPUTS ########
