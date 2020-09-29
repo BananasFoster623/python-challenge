@@ -14,6 +14,15 @@ for i in range(1,len(data)):
     data[i][1] = NameSplit[0]
     data[i].insert(2,NameSplit[1])
 
+# Convert the date column into a list of strings, then rewrite over the column value
+# Starting format: yyyy-mm-dd
+# Ending format:   mm/dd/yyyy
+for i in range(1,len(data)):
+    DateSplit = data[i][3].split("-")
+    NewDate = DateSplit[1]+'/'+DateSplit[2]+'/'+DateSplit[0]
+    data[i][3] = NewDate
+
+# Convert the SSN column such that the first five DIGITS are asterisks (*)
 
 ####### TEMP SECTION ########
 temp = True
