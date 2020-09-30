@@ -17,7 +17,7 @@ This repository is broken up into 4 directories, one for each of the parts liste
 # Code Descriptions
 
 ## General
-Every main.py file uses the csv and pathlib libraries for importing data. 
+Every main.py file uses the csv and pathlib libraries for importing data, and that occurs before step 1 in each of the sections below. 
 
 ## PyBank
 This script does the following:
@@ -37,7 +37,7 @@ This script does the following:
 
 ## PyBoss
 This script does the following:
-1. 
+1. Insert a temporary, empt
 
 ## PyParagraph
 This script does the following:
