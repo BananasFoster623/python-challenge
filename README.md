@@ -31,8 +31,9 @@ This script does the following:
 1. Calculates the total vote count by using the total row count minus 1 to account for the header row
 2. Finds unique candidate names by starting with an empty list, checking each value in the source list to see if it is in the new list, and if it is not it is appended to the new list. 
 3. Loops over the list of unique candidate names, then uses a nested loop to sum the number of rows that has that candidate's name listed.
-4. 
-5. Write to a .txt file and the terminal using problem statement specified formatting. 
+4. Loops over the list of each candidate's vote count, then uses a nested loop to calculate the percentage of total vote count.
+5. Finds the winner finding the max of vote count, then finding the index of that max and extracting respective value from the unique candidate names list. 
+6. Write to a .txt file and the terminal using problem statement specified formatting. 
 
 ## PyBoss
 This script does the following:
