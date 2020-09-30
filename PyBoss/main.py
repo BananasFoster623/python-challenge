@@ -8,7 +8,7 @@ with open(readpath) as csvfile:
     reader = csv.reader(csvfile, delimiter = ',')
     data = list(reader) # This file has headers, so our data starts at row index 1
 
-# Insert column after name that all says "temp"
+# Insert column after name to place the split up First Name and Last Name
 for i in range(1,len(data)):
     NameSplit = data[i][1].split()
     data[i][1] = NameSplit[0]
