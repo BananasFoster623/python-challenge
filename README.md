@@ -39,8 +39,14 @@ This script does the following:
 This script does the following:
 1. Insert a column after the existing name column, then use the .split() method to split up the employee names into First and Last name and write them to their respective columns.
 2. Use the .split() method to break up the date column by the '-' delimiter and reassembly with string concatenation into the correct date format. 
-3. Use the .split() method to break up the SSN column and extract the last 4 digits as a string, then concatenate that string with the prescribed "***-**-" cover up of kdkd
+3. Use the .split() method to break up the SSN column and extract the last 4 digits as a string, then concatenate that string with the prescribed "***-**-" masking of the first 5 digits.
+4. Use a public domain dictionary from GitHub (reference given in code comment) to replace the state name with the state abbreviation. 
+5. Write out to a csv file. 
 
 ## PyParagraph
 This script does the following:
-1. 
+1. Use .split() to break up the input paragraph to with the space delimiter, then use the len() function to find the total word count. 
+2. Use the re.split() method with the ReGex qualifier given in the problem statement, then use the len() function to find the total sentence count. 
+3. Loop over the list of words using the len() function and adding that value succesively to a helper value to find the total character count, then dividing by the word count previously found to find the average word length.
+4. Loop over the list of sentences using the len() function and adding that value succesively to a helper value to find the total length of each sentence, then dividing byt the sentence count previously found to find the average sentence length. 
+5. Output to the .txt file.
