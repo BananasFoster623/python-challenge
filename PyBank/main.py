@@ -31,7 +31,8 @@ for i in range(1,len(data)-1,1): # loop for the increase AND decrease using two 
 avgCalc = avgCalc/(len(data)-2) # we use len(data)-2 to account for headers (-1) and there being 1 less than the total number of rows for differnce calculation
 
 # Now we write to the file
-with open('.\\Analysis\\analysis.txt','w') as outFile:
+writepath = Path.cwd() / 'Analysis' / 'analysis.txt'
+with open(writepath,'w') as outFile:
     outFile.write('Financial Analysis\n')
     outFile.write('---------------------------------------------------------------\n')
     outFile.write(f'Total Months: {len(data)-1}\n') # Need to subtract 1 because of the headers

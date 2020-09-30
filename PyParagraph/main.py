@@ -30,11 +30,21 @@ for i in sentenceStrings:
     temp = temp + int(len(i))
 sentenceLength = temp / sentenceCount
 
+# Now we write to the file
+writepath = Path.cwd() / 'Analysis' / 'analysis.txt'
+with open(writepath,'w') as outFile:
+    outFile.write('Paragraph Analysis\n')
+    outFile.write('------------------\n')
+    outFile.write(f'Approximate Word Count: {wordCount}\n')
+    outFile.write(f'Approximate Sentence Count: {sentenceCount}\n')
+    outFile.write(f'Average Letter Count: {wordLength:.2f}\n')
+    outFile.write(f'Average Sentence Length: {sentenceLength:.2f}\n')
+
 # Output to terminal
-print('\n\n')
 print('Paragraph Analysis')
 print('------------------')
 print(f'Approximate Word Count: {wordCount}')
 print(f'Approximate Sentence Count: {sentenceCount}')
 print(f'Average Letter Count: {wordLength:.2f}')
 print(f'Average Sentence Length: {sentenceLength:.2f}')
+
