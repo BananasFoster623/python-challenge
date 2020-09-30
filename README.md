@@ -37,7 +37,9 @@ This script does the following:
 
 ## PyBoss
 This script does the following:
-1. Insert a temporary, empt
+1. Insert a column after the existing name column, then use the .split() method to split up the employee names into First and Last name and write them to their respective columns.
+2. Use the .split() method to break up the date column by the '-' delimiter and reassembly with string concatenation into the correct date format. 
+3. Use the .split() method to break up the SSN column and extract the last 4 digits as a string, then concatenate that string with the prescribed "***-**-" cover up of kdkd
 
 ## PyParagraph
 This script does the following:
