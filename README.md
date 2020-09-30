@@ -26,4 +26,18 @@ This script does the following:
 3. Uses the previously found sum of difference and divides by the total number of rows (i.e. months). The total number uses total length of list minus 2 to account for the header row and the fact that there is one less row used in the difference calculation.
 4. Write to a .txt file and the terminal using problem statement specified formatting. 
 
+## PyPoll 
+This script does the following:
+1. Calculates the total vote count by using the total row count minus 1 to account for the header row
+2. Finds unique candidate names by starting with an empty list, checking each value in the source list to see if it is in the new list, and if it is not it is appended to the new list. 
+3. Loops over the list of unique candidate names, then uses a nested loop to sum the number of rows that has that candidate's name listed.
+4. 
+5. Write to a .txt file and the terminal using problem statement specified formatting. 
 
+## PyBoss
+This script does the following:
+1. 
+
+## PyParagraph
+This script does the following:
+1. 
